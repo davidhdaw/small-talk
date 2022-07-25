@@ -4,6 +4,7 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
   <header>
+    <h1><span class="small">small</span> TALK</h1>
     <div class="wrapper">
       <nav>
         <RouterLink to="/">Random Party Boosters</RouterLink>
@@ -15,19 +16,23 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style scoped>
+  .small {
+    font-size: 23px;
+  }
+
 header {
   line-height: 1.5;
-  max-height: 100vh;
 }
 nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
+  display: flex;
   margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: #247BA0;
 }
 
 nav a.router-link-exact-active:hover {
@@ -37,7 +42,8 @@ nav a.router-link-exact-active:hover {
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  -webkit-text-stroke: 1px black;
+  font-size: 20px;
 }
 
 nav a:first-of-type {
