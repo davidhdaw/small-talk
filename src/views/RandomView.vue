@@ -1,13 +1,20 @@
 <script setup>
 import { ref } from "vue"
   import BoosterCard from "../components/BoosterCard.vue"
+
   const booster = ref(null)
+
   const getNewFact = () => {
     fetch("https://uselessfacts.jsph.pl/random.json?language=en")
     .then(response => response.json())
     .then(data => {
       console.log(data)
-      return booster.value = data
+      const newBooster = {
+        text: data.text,
+        id: Date.now(),
+        type: "fact"
+      }
+      return booster.value = newBooster;
       })
   }
 </script>
@@ -19,7 +26,7 @@ import { ref } from "vue"
       <button>Give me a new song</button>
       <button>Give me a new drink</button>
     </div>
-    <BoosterCard v-if= "booster" :text="booster.text" />
+    <BoosterCard v-if= "booster" :text="booster.text" :type="booster.type"/>
   </div>
 </template>
 <style>
