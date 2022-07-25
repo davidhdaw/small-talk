@@ -8,11 +8,11 @@ import { ref } from "vue"
     fetch("https://uselessfacts.jsph.pl/random.json?language=en")
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       const newBooster = {
         text: data.text,
         id: Date.now(),
-        type: "fact"
+        type: "fact",
+        isFavorited: false,
       }
       return booster.value = newBooster;
       })
@@ -26,7 +26,11 @@ import { ref } from "vue"
       <button>Give me a new song</button>
       <button>Give me a new drink</button>
     </div>
-    <BoosterCard v-if= "booster" :text="booster.text" :type="booster.type"/>
+    <BoosterCard v-if= "booster" 
+      :isFavorited="booster.isFavorited" 
+      :text="booster.text" 
+      :type="booster.type"
+      :card="booster"/>
   </div>
 </template>
 <style>
