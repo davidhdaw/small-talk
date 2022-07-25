@@ -14,7 +14,6 @@ import { ref } from "vue"
 
 <template>
   <div class="random">
-    <h1>Generate Random Boosters</h1>
     <div class="button-container">
       <button @click="getNewFact">Give me a new fact</button>
       <button>Give me a new song</button>
@@ -24,5 +23,26 @@ import { ref } from "vue"
   </div>
 </template>
 <style>
+
+.random {
+  margin: 1rem;
+}
+button {
+  background-color: #E0676D;
+  font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+  color: white;
+  -webkit-text-stroke: 0.05rem black;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.7rem;
+  border: 0.2rem solid black;
+  box-shadow: 0.3rem 0.3rem #000000;
+}
+
+button:hover {
+  background-color: rgba(36, 123, 160, 1);
+  cursor: pointer;
+}
 
 </style>
