@@ -17,6 +17,26 @@ import { ref } from "vue"
       return booster.value = newBooster;
       })
   }
+
+  const getNewDrink = () => {
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    .then(response => {
+      console.log(response)
+      return response.json()
+      })
+    .then(data => {
+      console.log(data)
+      return data;
+  })
+      // const newBooster = {
+      //   text: data.text,
+      //   id: Date.now(),
+      //   type: "fact",
+      //   isFavorited: false,
+      // }
+      // return booster.value = newBooster;
+      // })
+  }
 </script>
 
 <template>
@@ -24,7 +44,7 @@ import { ref } from "vue"
     <div class="button-container">
       <button @click="getNewFact">Give me a new fact</button>
       <button>Give me a new song</button>
-      <button>Give me a new drink</button>
+      <button @click="getNewDrink">Give me a new drink</button>
     </div>
     <BoosterCard v-if= "booster" 
       :isFavorited="booster.isFavorited" 
