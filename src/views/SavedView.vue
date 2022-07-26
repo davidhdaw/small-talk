@@ -2,13 +2,13 @@
 </script>
 
 <template>
-  <main>
+  <div class="saved">
     <div class="button-container">
       <button>Saved facts</button>
       <button>Saved Songs</button>
       <button>Saved drinks</button>
     </div>
-  </main>
+  </div>
 </template>
 
 <style scoped>
@@ -29,5 +29,9 @@ button {
 button:hover {
   background-color: rgba(36, 123, 160, 1);
   cursor: pointer;
+}
+
+.saved {
+  margin: 1rem;
 }
 </style>
