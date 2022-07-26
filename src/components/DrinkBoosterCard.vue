@@ -1,0 +1,84 @@
+<script setup>
+import { defineProps } from "vue"
+    const props = defineProps({
+        title: String,
+        type: String,
+        preparation: String,
+        ingredients: Array,
+        isFavorited: Boolean,
+        booster: Object
+        })
+</script>
+
+<template>
+    <div class="booster-card">
+        <div class="card-header">
+            <h3>{{ type }}.</h3>
+            <p class="favorite-star">★</p>
+        </div>
+        <h4>{{title}}</h4>
+        <ul>
+            <li v-for="ingredient in ingredients">
+                {{ingredient}}
+            </li>
+        </ul>
+        <p class="card-text">{{ preparation }}</p>
+    </div>
+</template>
+
+<style scoped>
+.booster-card {
+    background-color: #1F487E;
+    height: 15rem;
+    width: 13rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid black;
+    box-shadow: 0.3rem 0.3rem #000000;
+    margin: 1.2rem;
+}
+
+.card-text {
+    height: 9rem;
+    overflow: scroll;
+    padding: 0.5rem;
+    word-break: break-word;
+    margin: 0.3rem;
+}
+
+*::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #E0676D;
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
+    }
+
+.card-header {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1.5rem;
+    margin-bottom: 0px;
+    margin-top: 0.3rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-right: 2.5rem;
+    margin-bottom: 0px;
+}
+
+.favorite-star {
+    font-size: 1.2rem;
+    margin: 0px;
+    margin-top: 1.2rem
+}
+</style>

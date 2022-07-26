@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue"
   import BoosterCard from "../components/BoosterCard.vue"
-
+  import DrinkBoosterCard from "../components/DrinkBoosterCard.vue"
   const booster = ref(null)
 
   const getNewFact = () => {
@@ -17,6 +17,40 @@ import { ref } from "vue"
       return booster.value = newBooster;
       })
   }
+
+  const getNewDrink = () => {
+    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
+    .then(response => {
+      console.log(response)
+      return response.json()
+      })
+    .then(data => {
+      const ingredientsList = [];
+      for (let i = 1; i < 16; i++) {
+        if (data.drinks[0][`strIngredient${i}`]) {
+          const ingredient = data.drinks[0][`strMeasure${i}`] + " " + data.drinks[0][`strIngredient${i}`]
+          ingredientsList.push(ingredient)
+        }
+      }
+      const newBooster = {
+        title: data.drinks[0].strDrink,
+        preparation: data.drinks[0].strInstructions,
+        ingredients: ingredientsList,
+        id:Date.now(),
+        type:"drink",
+        isFavorited:false
+      }
+      return booster.value = newBooster;
+  })
+      // const newBooster = {
+      //   text: data.text,
+      //   id: Date.now(),
+      //   type: "fact",
+      //   isFavorited: false,
+      // }
+      // return booster.value = newBooster;
+      // })
+  }
 </script>
 
 <template>
@@ -24,13 +58,22 @@ import { ref } from "vue"
     <div class="button-container">
       <button @click="getNewFact">Give me a new fact</button>
       <button>Give me a new song</button>
-      <button>Give me a new drink</button>
+      <button @click="getNewDrink">Give me a new drink</button>
     </div>
-    <BoosterCard v-if= "booster" 
+    <BoosterCard v-if= "booster && booster.type ==='fact'" 
       :isFavorited="booster.isFavorited" 
       :text="booster.text" 
       :type="booster.type"
       :card="booster"/>
+    <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
+      :title="booster.title"
+      :type="booster.type"
+      :preparation="booster.preparation"
+      :ingredients="booster.ingredients"
+      :isFavorited="booster.isFavorited"
+    />
+
+    
   </div>
 </template>
 <style scoped>
