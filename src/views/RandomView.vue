@@ -41,15 +41,7 @@ import { ref } from "vue"
         isFavorited:false
       }
       return booster.value = newBooster;
-  })
-      // const newBooster = {
-      //   text: data.text,
-      //   id: Date.now(),
-      //   type: "fact",
-      //   isFavorited: false,
-      // }
-      // return booster.value = newBooster;
-      // })
+    })
   }
 </script>
 
@@ -92,6 +84,7 @@ button {
   border-radius: 0.7rem;
   border: 0.2rem solid black;
   box-shadow: 0.3rem 0.3rem #000000;
+  transition: 0.4s;
 }
 
 button:hover {
