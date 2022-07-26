@@ -33,7 +33,7 @@ import { ref } from "vue"
       :card="booster"/>
   </div>
 </template>
-<style>
+<style scoped>
 
 .random {
   margin: 1rem;
