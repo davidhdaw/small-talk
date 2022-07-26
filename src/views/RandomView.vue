@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue"
   import BoosterCard from "../components/BoosterCard.vue"
-
+  import DrinkBoosterCard from "../components/DrinkBoosterCard.vue"
   const booster = ref(null)
 
   const getNewFact = () => {
@@ -25,19 +25,20 @@ import { ref } from "vue"
       return response.json()
       })
     .then(data => {
-      const ingredients = [];
+      const ingredientsList = [];
       for (let i = 1; i < 16; i++) {
         if (data.drinks[0][`strIngredient${i}`]) {
           const ingredient = data.drinks[0][`strMeasure${i}`] + " " + data.drinks[0][`strIngredient${i}`]
-          ingredients.push(ingredient)
+          ingredientsList.push(ingredient)
         }
       }
-      console.log(ingredients)
       const newBooster = {
         title: data.drinks[0].strDrink,
         preparation: data.drinks[0].strInstructions,
+        ingredients: ingredientsList,
         id:Date.now(),
-        type:"drink"
+        type:"drink",
+        isFavorited:false
       }
       return booster.value = newBooster;
   })
@@ -59,11 +60,20 @@ import { ref } from "vue"
       <button>Give me a new song</button>
       <button @click="getNewDrink">Give me a new drink</button>
     </div>
-    <BoosterCard v-if= "booster" 
+    <BoosterCard v-if= "booster && booster.type ==='fact'" 
       :isFavorited="booster.isFavorited" 
       :text="booster.text" 
       :type="booster.type"
       :card="booster"/>
+    <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
+      :title="booster.title"
+      :type="booster.type"
+      :preparation="booster.preparation"
+      :ingredients="booster.ingredients"
+      :isFavorited="booster.isFavorited"
+    />
+
+    
   </div>
 </template>
 <style scoped>
