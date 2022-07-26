@@ -24,6 +24,7 @@ button {
   border-radius: 0.7rem;
   border: 0.2rem solid black;
   box-shadow: 0.3rem 0.3rem #000000;
+  transition: 0.4s;
 }
 
 button:hover {

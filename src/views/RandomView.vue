@@ -70,6 +70,7 @@ import { ref } from "vue"
 .random {
   margin: 1rem;
 }
+
 button {
   background-color: #E0676D;
   font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
