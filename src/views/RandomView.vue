@@ -25,8 +25,21 @@ import { ref } from "vue"
       return response.json()
       })
     .then(data => {
-      console.log(data)
-      return data;
+      const ingredients = [];
+      for (let i = 1; i < 16; i++) {
+        if (data.drinks[0][`strIngredient${i}`]) {
+          const ingredient = data.drinks[0][`strMeasure${i}`] + " " + data.drinks[0][`strIngredient${i}`]
+          ingredients.push(ingredient)
+        }
+      }
+      console.log(ingredients)
+      const newBooster = {
+        title: data.drinks[0].strDrink,
+        preparation: data.drinks[0].strInstructions,
+        id:Date.now(),
+        type:"drink"
+      }
+      return booster.value = newBooster;
   })
       // const newBooster = {
       //   text: data.text,
