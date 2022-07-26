@@ -5,6 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <header>
     <h1><span class="small">small</span><br/> TALK</h1>
+    <p>a tool to boost your parties!</p>
     <div class="wrapper">
       <nav>
         <RouterLink 
@@ -37,6 +38,12 @@ header {
   line-height: 1.5;
 }
 
+p {
+  margin: 0px;
+  -webkit-text-stroke: 0.05rem black;
+  font-size: 1.2rem;
+}
+
 .router-link {
   margin: 1rem;
   font-size: 2rem;
@@ -54,7 +61,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  background-color: rgba(36, 123, 160, 1);
+  background-color: rgb(15, 142, 196);
   text-shadow: 2px 2px #ff0000;
 }
 
