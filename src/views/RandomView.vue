@@ -20,10 +20,7 @@ import { ref } from "vue"
 
   const getNewDrink = () => {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-    .then(response => {
-      console.log(response)
-      return response.json()
-      })
+    .then(response => response.json())
     .then(data => {
       const ingredientsList = [];
       for (let i = 1; i < 16; i++) {
