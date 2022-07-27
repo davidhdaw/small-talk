@@ -2,10 +2,8 @@
 import { ref } from "vue"
 import { useBoosterStore } from '../stores/boosterStore';
 import BoosterCard from "../components/BoosterCard.vue"
-import { storeToRefs } from 'pinia'
 import DrinkBoosterCard from "../components/DrinkBoosterCard.vue"
-const { boosters } = storeToRefs(useBoosterStore())
-const { favoritedFacts, favoritedDrinks } = useBoosterStore()
+const store = useBoosterStore()
 
 const savedMode = ref('facts');
 
@@ -21,7 +19,7 @@ const savedMode = ref('facts');
     </div>
     <div class="fact-container booster-container" 
       v-if="savedMode === 'facts'"
-      v-for="fact in favoritedFacts">
+      v-for="fact in store.favoritedFacts">
         <BoosterCard 
             :isFavorited="fact.isFavorited" 
             :text="fact.text" 
@@ -30,7 +28,7 @@ const savedMode = ref('facts');
     </div>
     <div class="drink-container booster-container"
     v-if="savedMode === 'drinks'"
-      v-for="drink in favoritedDrinks">
+      v-for="drink in store.favoritedDrinks">
       <DrinkBoosterCard 
       :title="drink.title"
       :type="drink.type"

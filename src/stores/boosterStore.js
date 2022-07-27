@@ -20,7 +20,10 @@ export const useBoosterStore = defineStore({
     favoriteBooster(booster){
       booster.isFavorited = true;
       this.boosters.push(booster)
-      console.log(this.boosters)
+    },
+    deleteBooster(deletedBooster){
+      deletedBooster.isFavorited = false;
+      this.boosters = this.boosters.filter(booster => booster.id !== deletedBooster.id)
     }
   }
 })

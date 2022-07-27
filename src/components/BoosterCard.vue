@@ -1,20 +1,14 @@
 <script setup>
-import { storeToRefs } from 'pinia'
 import { useBoosterStore } from '../stores/boosterStore';
-import { defineProps, onMounted } from "vue"
+import { defineProps } from "vue"
 
-const { boosters } = storeToRefs(useBoosterStore())
-const { favoriteBooster } = useBoosterStore()
+const { favoriteBooster, deleteBooster } = useBoosterStore()
 
-    const props = defineProps({
-        text: String,
-        type: String,
-        isFavorited: Boolean,
-        booster: Object
-        })
-
-    onMounted(() => {
-        console.log(boosters.value)
+const props = defineProps({
+    text: String,
+    type: String,
+    isFavorited: Boolean,
+    booster: Object
     })
 </script>
 
@@ -22,7 +16,12 @@ const { favoriteBooster } = useBoosterStore()
     <div class="booster-card">
         <div class="card-header">
             <h3>{{ type }}.</h3>
-            <p @click="favoriteBooster(booster)" class="favorite-star">★</p>
+            <p v-if="!booster.isFavorited"
+                @click="favoriteBooster(booster)" 
+                class="unfilled-favorite-star">☆</p>
+            <p v-if="booster.isFavorited" 
+                @click="deleteBooster(booster)"
+                class="filled-favorite-star">★</p>
         </div>
         <p class="card-text">{{ text }}</p>
     </div>
