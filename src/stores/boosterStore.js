@@ -10,6 +10,7 @@ export const useBoosterStore = defineStore({
   }, 
   actions: {
     favoriteBooster(booster){
+      booster.isFavorited = true;
       this.boosters.push(booster)
       console.log(this.boosters)
     }

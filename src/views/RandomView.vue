@@ -71,6 +71,7 @@ import { ref } from "vue"
       :preparation="booster.preparation"
       :ingredients="booster.ingredients"
       :isFavorited="booster.isFavorited"
+      :booster="booster"
     />
 
     
