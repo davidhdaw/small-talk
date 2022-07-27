@@ -16,13 +16,15 @@ import { defineProps } from "vue"
             <h3>{{ type }}.</h3>
             <p class="favorite-star">★</p>
         </div>
-        <h4>{{title}}</h4>
-        <ul>
-            <li v-for="ingredient in ingredients">
-                {{ingredient}}
-            </li>
-        </ul>
-        <p class="card-text">{{ preparation }}</p>
+        <div class="card-text">
+            <h4 class="drink-title">{{title}}</h4>
+            <ul>
+                <li v-for="ingredient in ingredients">
+                    {{ingredient}}
+                </li>
+            </ul>
+            <p class="preparation">{{ preparation }}</p>
+        </div>
     </div>
 </template>
 
@@ -37,10 +39,13 @@ import { defineProps } from "vue"
     margin: 1.2rem;
 }
 
+.drink-title {
+    font-size: 1rem;
+    text-decoration:underline;
+}
 .card-text {
-    height: 9rem;
+    height: 11rem;
     overflow: scroll;
-    padding: 0.5rem;
     word-break: break-word;
     margin: 0.3rem;
 }

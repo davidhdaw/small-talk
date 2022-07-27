@@ -20,10 +20,7 @@ import { ref } from "vue"
 
   const getNewDrink = () => {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-    .then(response => {
-      console.log(response)
-      return response.json()
-      })
+    .then(response => response.json())
     .then(data => {
       const ingredientsList = [];
       for (let i = 1; i < 16; i++) {
@@ -41,15 +38,7 @@ import { ref } from "vue"
         isFavorited:false
       }
       return booster.value = newBooster;
-  })
-      // const newBooster = {
-      //   text: data.text,
-      //   id: Date.now(),
-      //   type: "fact",
-      //   isFavorited: false,
-      // }
-      // return booster.value = newBooster;
-      // })
+    })
   }
 </script>
 
@@ -60,20 +49,20 @@ import { ref } from "vue"
       <button>Give me a new song</button>
       <button @click="getNewDrink">Give me a new drink</button>
     </div>
-    <BoosterCard v-if= "booster && booster.type ==='fact'" 
-      :isFavorited="booster.isFavorited" 
-      :text="booster.text" 
-      :type="booster.type"
-      :card="booster"/>
-    <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
-      :title="booster.title"
-      :type="booster.type"
-      :preparation="booster.preparation"
-      :ingredients="booster.ingredients"
-      :isFavorited="booster.isFavorited"
-    />
-
-    
+    <div class="booster-container">
+      <BoosterCard v-if= "booster && booster.type ==='fact'" 
+        :isFavorited="booster.isFavorited" 
+        :text="booster.text" 
+        :type="booster.type"
+        :card="booster"/>
+      <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
+        :title="booster.title"
+        :type="booster.type"
+        :preparation="booster.preparation"
+        :ingredients="booster.ingredients"
+        :isFavorited="booster.isFavorited"
+      />
+    </div>
   </div>
 </template>
 <style scoped>
@@ -81,6 +70,7 @@ import { ref } from "vue"
 .random {
   margin: 1rem;
 }
+
 button {
   background-color: #E0676D;
   font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
@@ -92,6 +82,12 @@ button {
   border-radius: 0.7rem;
   border: 0.2rem solid black;
   box-shadow: 0.3rem 0.3rem #000000;
+  transition: 0.4s;
+}
+
+.booster-container {
+  display: flex;
+  justify-content: center;
 }
 
 button:hover {
