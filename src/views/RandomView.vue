@@ -64,7 +64,7 @@ import { ref } from "vue"
       :isFavorited="booster.isFavorited" 
       :text="booster.text" 
       :type="booster.type"
-      :card="booster"/>
+      :booster="booster"/>
     <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
       :title="booster.title"
       :type="booster.type"

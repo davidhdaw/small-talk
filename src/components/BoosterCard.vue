@@ -4,6 +4,7 @@ import { useBoosterStore } from '../stores/boosterStore';
 import { defineProps, onMounted } from "vue"
 
 const { boosters } = storeToRefs(useBoosterStore())
+const { favoriteBooster } = useBoosterStore()
 
     const props = defineProps({
         text: String,
@@ -21,7 +22,7 @@ const { boosters } = storeToRefs(useBoosterStore())
     <div class="booster-card">
         <div class="card-header">
             <h3>{{ type }}.</h3>
-            <p class="favorite-star">★</p>
+            <p @click="favoriteBooster(booster)" class="favorite-star">★</p>
         </div>
         <p class="card-text">{{ text }}</p>
     </div>
