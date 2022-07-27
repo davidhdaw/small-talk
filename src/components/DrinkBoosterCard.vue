@@ -1,5 +1,10 @@
 <script setup>
 import { defineProps } from "vue"
+import { storeToRefs } from 'pinia'
+import { useBoosterStore } from '../stores/boosterStore';
+
+const { favoriteBooster, deleteBooster } = useBoosterStore()
+
     const props = defineProps({
         title: String,
         type: String,
@@ -14,7 +19,11 @@ import { defineProps } from "vue"
     <div class="booster-card">
         <div class="card-header">
             <h3>{{ type }}.</h3>
-            <p class="favorite-star">★</p>
+            <p v-if="!booster.isFavorited"
+            @click="favoriteBooster(booster)" class="unfilled-favorite-star">☆</p>
+            <p v-if="booster.isFavorited" 
+            @click="deleteBooster(booster)"
+            class="filled-favorite-star">★</p>
         </div>
         <div class="card-text">
             <h4 class="drink-title">{{title}}</h4>

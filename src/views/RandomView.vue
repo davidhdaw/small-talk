@@ -49,20 +49,20 @@ import { ref } from "vue"
       <button>Give me a new song</button>
       <button @click="getNewDrink">Give me a new drink</button>
     </div>
-    <div class="booster-container">
-      <BoosterCard v-if= "booster && booster.type ==='fact'" 
-        :isFavorited="booster.isFavorited" 
-        :text="booster.text" 
-        :type="booster.type"
-        :card="booster"/>
-      <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
-        :title="booster.title"
-        :type="booster.type"
-        :preparation="booster.preparation"
-        :ingredients="booster.ingredients"
-        :isFavorited="booster.isFavorited"
-      />
-    </div>
+    
+    <BoosterCard v-if= "booster && booster.type ==='fact'" 
+      :isFavorited="booster.isFavorited" 
+      :text="booster.text" 
+      :type="booster.type"
+      :booster="booster"/>
+    <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
+      :title="booster.title"
+      :type="booster.type"
+      :preparation="booster.preparation"
+      :ingredients="booster.ingredients"
+      :isFavorited="booster.isFavorited"
+      :booster="booster"
+    />
   </div>
 </template>
 <style scoped>

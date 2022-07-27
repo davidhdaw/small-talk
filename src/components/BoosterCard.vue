@@ -1,18 +1,27 @@
 <script setup>
+import { useBoosterStore } from '../stores/boosterStore';
 import { defineProps } from "vue"
-    const props = defineProps({
-        text: String,
-        type: String,
-        isFavorited: Boolean,
-        booster: Object
-        })
+
+const { favoriteBooster, deleteBooster } = useBoosterStore()
+
+const props = defineProps({
+    text: String,
+    type: String,
+    isFavorited: Boolean,
+    booster: Object
+    })
 </script>
 
 <template>
     <div class="booster-card">
         <div class="card-header">
             <h3>{{ type }}.</h3>
-            <p class="favorite-star">★</p>
+            <p v-if="!booster.isFavorited"
+                @click="favoriteBooster(booster)" 
+                class="unfilled-favorite-star">☆</p>
+            <p v-if="booster.isFavorited" 
+                @click="deleteBooster(booster)"
+                class="filled-favorite-star">★</p>
         </div>
         <p class="card-text">{{ text }}</p>
     </div>
