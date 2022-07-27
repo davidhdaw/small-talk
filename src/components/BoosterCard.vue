@@ -1,11 +1,20 @@
 <script setup>
-import { defineProps } from "vue"
+import { storeToRefs } from 'pinia'
+import { useBoosterStore } from '../stores/boosterStore';
+import { defineProps, onMounted } from "vue"
+
+const { boosters } = storeToRefs(useBoosterStore())
+
     const props = defineProps({
         text: String,
         type: String,
         isFavorited: Boolean,
         booster: Object
         })
+
+    onMounted(() => {
+        console.log(boosters.value)
+    })
 </script>
 
 <template>
