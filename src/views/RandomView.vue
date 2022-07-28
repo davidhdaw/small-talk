@@ -12,9 +12,27 @@ import { ref } from "vue"
         text: data.text,
         id: Date.now(),
         type: "fact",
-        isFavorited: false,
+        isFavorited: false
       }
       return booster.value = newBooster;
+      })
+  }
+
+  const getNewJoke = () => {
+    fetch('https://icanhazdadjoke.com/', {
+      headers: {
+        'accept': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        const newBooster = {
+        text: data.joke,
+        id: Date.now(),
+        type: "joke",
+        isFavorited: false
+        }
+        return booster.value = newBooster;
       })
   }
 
@@ -46,7 +64,7 @@ import { ref } from "vue"
   <div class="random">
     <div class="button-container">
       <button @click="getNewFact">Give me a new fact</button>
-      <button>Give me a new song</button>
+      <button @click="getNewJoke">Give me a new joke</button>
       <button @click="getNewDrink">Give me a new drink</button>
     </div>
     
@@ -63,6 +81,11 @@ import { ref } from "vue"
       :isFavorited="booster.isFavorited"
       :booster="booster"
     />
+    <BoosterCard v-if= "booster && booster.type ==='joke'" 
+      :isFavorited="booster.isFavorited" 
+      :text="booster.text" 
+      :type="booster.type"
+      :booster="booster"/>
   </div>
 </template>
 <style scoped>

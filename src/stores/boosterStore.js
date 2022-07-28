@@ -12,12 +12,13 @@ export const useBoosterStore = defineStore({
     favoritedDrinks: (state) => {
       return state.boosters.filter(booster => booster.type === "drink")
     },
-    favoritedSongs: (state) => {
-      return state.boosters.filter(booster => booster.type === "song")
+    favoritedJokes: (state) => {
+      return state.boosters.filter(booster => booster.type === "joke")
     }
   }, 
   actions: {
     favoriteBooster(booster){
+      console.log(booster)
       booster.isFavorited = true
       this.boosters.push(booster)
       const boosterAsString = JSON.stringify(booster)
