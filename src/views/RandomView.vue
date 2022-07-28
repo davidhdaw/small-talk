@@ -99,7 +99,7 @@
 
 button {
   background-color: #E0676D;
-  font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
   color: white;
   -webkit-text-stroke: 0.05rem black;
   font-size: 1.4rem;

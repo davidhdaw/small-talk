@@ -1,7 +1,7 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
 export const useBoosterStore = defineStore({
-  id: 'boosters',
+  id: "boosters",
   state: () => ({
     boosters: [],
   }),

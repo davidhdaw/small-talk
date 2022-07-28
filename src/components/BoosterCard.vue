@@ -1,5 +1,5 @@
 <script setup>
-    import { useBoosterStore } from '../stores/boosterStore';
+    import { useBoosterStore } from "../stores/boosterStore";
     import { defineProps } from "vue";
 
     const { favoriteBooster, deleteBooster } = useBoosterStore();

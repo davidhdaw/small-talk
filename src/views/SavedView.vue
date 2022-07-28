@@ -1,10 +1,10 @@
 <script setup>
   import { ref } from "vue";
-  import { useBoosterStore } from '../stores/boosterStore';
+  import { useBoosterStore } from "../stores/boosterStore";
   import BoosterCard from "../components/BoosterCard.vue";
   import DrinkBoosterCard from "../components/DrinkBoosterCard.vue";
   const store = useBoosterStore();
-  const savedMode = ref('facts');
+  const savedMode = ref("facts");
 </script>
 
 <template>
@@ -55,7 +55,7 @@
 
 button {
   background-color: #E0676D;
-  font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
   color: white;
   -webkit-text-stroke: 0.05rem black;
   font-size: 1.4rem;
