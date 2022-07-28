@@ -14,7 +14,7 @@ const savedMode = ref('facts');
   <div class="saved">
     <div class="button-container">
       <button @click="savedMode = 'facts'">Saved facts</button>
-      <button @click="savedMode = 'songs'">Saved Songs</button>
+      <button @click="savedMode = 'jokes'">Saved Jokes</button>
       <button @click="savedMode = 'drinks'">Saved drinks</button>
     </div>
     <div class=booster-container>
@@ -38,6 +38,15 @@ const savedMode = ref('facts');
       :isFavorited="drink.isFavorited"
       :booster="drink"
     />
+    </div>
+    <div class="joke-container" 
+      v-if="savedMode === 'jokes'"
+      v-for="joke in store.favoritedJokes">
+     <BoosterCard 
+      :isFavorited="joke.isFavorited" 
+      :text="joke.text" 
+      :type="joke.type"
+      :booster="joke" />
     </div>
     </div>
   </div>
