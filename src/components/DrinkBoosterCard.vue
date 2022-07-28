@@ -44,6 +44,9 @@ h4 {
 .star {
     font-size: 20px;
 }
+.star:hover {
+    cursor: pointer;
+}
 .filled-favorite-star {
     color:#E0676D;
 }
@@ -62,7 +65,7 @@ h4 {
     text-decoration:underline;
 }
 .card-text {
-    height: 11rem;
+    height: 10.5rem;
     overflow: scroll;
     word-break: break-word;
     margin: 0.3rem;

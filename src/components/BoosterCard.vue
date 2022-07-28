@@ -28,6 +28,9 @@ const props = defineProps({
 </template>
 
 <style scoped>
+.star:hover {
+    cursor: pointer;
+}
 .star {
     font-size: 20px;
 }
