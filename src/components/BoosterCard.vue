@@ -18,16 +18,25 @@ const props = defineProps({
             <h3>{{ type }}.</h3>
             <p v-if="!booster.isFavorited"
                 @click="favoriteBooster(booster)" 
-                class="unfilled-favorite-star">☆</p>
+                class="unfilled-favorite-star star">☆</p>
             <p v-if="booster.isFavorited" 
                 @click="deleteBooster(booster)"
-                class="filled-favorite-star">★</p>
+                class="filled-favorite-star star">★</p>
         </div>
         <p class="card-text">{{ text }}</p>
     </div>
 </template>
 
 <style scoped>
+.star:hover {
+    cursor: pointer;
+}
+.star {
+    font-size: 20px;
+}
+.filled-favorite-star {
+    color:#E0676D;
+}
 .booster-card {
     background-color: #1F487E;
     height: 15rem;

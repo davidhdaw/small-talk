@@ -17,7 +17,8 @@ const savedMode = ref('facts');
       <button @click="savedMode = 'songs'">Saved Songs</button>
       <button @click="savedMode = 'drinks'">Saved drinks</button>
     </div>
-    <div class="fact-container booster-container" 
+    <div class=booster-container>
+    <div class="fact-container" 
       v-if="savedMode === 'facts'"
       v-for="fact in store.favoritedFacts">
         <BoosterCard 
@@ -26,7 +27,7 @@ const savedMode = ref('facts');
             :type="fact.type"
             :booster="fact" />
     </div>
-    <div class="drink-container booster-container"
+    <div class="drink-container"
     v-if="savedMode === 'drinks'"
       v-for="drink in store.favoritedDrinks">
       <DrinkBoosterCard 
@@ -37,6 +38,7 @@ const savedMode = ref('facts');
       :isFavorited="drink.isFavorited"
       :booster="drink"
     />
+    </div>
     </div>
   </div>
 </template>
@@ -64,5 +66,18 @@ button:hover {
 
 .saved {
   margin: 1rem;
+}
+
+.booster-container {
+  display: flex;
+  flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+@media screen and (max-width: 500px) {
+  button {
+    font-size: 1.2rem;
+  }
 }
 </style>

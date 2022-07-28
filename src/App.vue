@@ -77,4 +77,10 @@ nav a {
   -webkit-text-stroke: 0.05rem black;
   font-size: 20px;
 }
+
+@media screen and (max-width: 500px) {
+  .router-link {
+    font-size: 1rem;
+  }
+}
 </style>
