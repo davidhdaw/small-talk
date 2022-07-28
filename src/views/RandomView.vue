@@ -1,8 +1,8 @@
 <script setup>
-import { ref } from "vue"
-  import BoosterCard from "../components/BoosterCard.vue"
-  import DrinkBoosterCard from "../components/DrinkBoosterCard.vue"
-  const booster = ref(null)
+  import { ref } from "vue";
+  import BoosterCard from "../components/BoosterCard.vue";
+  import DrinkBoosterCard from "../components/DrinkBoosterCard.vue";
+  const booster = ref(null);
 
   const getNewFact = () => {
     fetch("https://uselessfacts.jsph.pl/random.json?language=en")
@@ -15,13 +15,13 @@ import { ref } from "vue"
         isFavorited: false
       }
       return booster.value = newBooster;
-      })
-  }
+    });
+  };
 
   const getNewJoke = () => {
-    fetch('https://icanhazdadjoke.com/', {
+    fetch("https://icanhazdadjoke.com/", {
       headers: {
-        'accept': 'application/json'
+        "accept": "application/json"
       }
     })
       .then(res => res.json())
@@ -33,8 +33,8 @@ import { ref } from "vue"
         isFavorited: false
         }
         return booster.value = newBooster;
-      })
-  }
+    });
+  };
 
   const getNewDrink = () => {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -43,10 +43,10 @@ import { ref } from "vue"
       const ingredientsList = [];
       for (let i = 1; i < 16; i++) {
         if (data.drinks[0][`strIngredient${i}`]) {
-          const ingredient = data.drinks[0][`strMeasure${i}`] + " " + data.drinks[0][`strIngredient${i}`]
-          ingredientsList.push(ingredient)
-        }
-      }
+          const ingredient = data.drinks[0][`strMeasure${i}`] + " " + data.drinks[0][`strIngredient${i}`];
+          ingredientsList.push(ingredient);
+        };
+      };
       const newBooster = {
         title: data.drinks[0].strDrink,
         preparation: data.drinks[0].strInstructions,
@@ -56,8 +56,8 @@ import { ref } from "vue"
         isFavorited:false
       }
       return booster.value = newBooster;
-    })
-  }
+    });
+  };
 </script>
 
 <template>
@@ -67,25 +67,28 @@ import { ref } from "vue"
       <button @click="getNewJoke">Give me a new joke</button>
       <button @click="getNewDrink">Give me a new drink</button>
     </div>
-    
-    <BoosterCard v-if= "booster && booster.type ==='fact'" 
-      :isFavorited="booster.isFavorited" 
-      :text="booster.text" 
-      :type="booster.type"
-      :booster="booster"/>
-    <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
-      :title="booster.title"
-      :type="booster.type"
-      :preparation="booster.preparation"
-      :ingredients="booster.ingredients"
-      :isFavorited="booster.isFavorited"
-      :booster="booster"
-    />
-    <BoosterCard v-if= "booster && booster.type ==='joke'" 
-      :isFavorited="booster.isFavorited" 
-      :text="booster.text" 
-      :type="booster.type"
-      :booster="booster"/>
+    <div class="booster-container">
+      <BoosterCard v-if= "booster && booster.type ==='fact'" 
+        :isFavorited="booster.isFavorited" 
+        :text="booster.text" 
+        :type="booster.type"
+        :booster="booster"
+      />
+      <DrinkBoosterCard v-if= "booster && booster.type ==='drink'"
+        :title="booster.title"
+        :type="booster.type"
+        :preparation="booster.preparation"
+        :ingredients="booster.ingredients"
+        :isFavorited="booster.isFavorited"
+        :booster="booster"
+      />
+      <BoosterCard v-if= "booster && booster.type ==='joke'" 
+        :isFavorited="booster.isFavorited" 
+        :text="booster.text" 
+        :type="booster.type"
+        :booster="booster"
+      />
+    </div>
   </div>
 </template>
 <style scoped>
