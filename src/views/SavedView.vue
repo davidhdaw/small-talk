@@ -53,39 +53,39 @@
 
 <style scoped>
 
-button {
-  background-color: #E0676D;
-  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-  color: white;
-  -webkit-text-stroke: 0.05rem black;
-  font-size: 1.4rem;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  border-radius: 0.7rem;
-  border: 0.2rem solid black;
-  box-shadow: 0.3rem 0.3rem #000000;
-  transition: 0.4s;
-}
-
-button:hover {
-  background-color: rgba(36, 123, 160, 1);
-  cursor: pointer;
-}
-
-.saved {
-  margin: 1rem;
-}
-
-.booster-container {
-  display: flex;
-  flex-wrap: wrap;
-	justify-content: center;
-	align-items: flex-start;
-}
-
-@media screen and (max-width: 500px) {
   button {
-    font-size: 1.2rem;
+    background-color: #E0676D;
+    font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+    color: white;
+    -webkit-text-stroke: 0.05rem black;
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 0.7rem;
+    border: 0.2rem solid black;
+    box-shadow: 0.3rem 0.3rem #000000;
+    transition: 0.4s;
   }
-}
+
+  button:hover {
+    background-color: rgba(36, 123, 160, 1);
+    cursor: pointer;
+  }
+
+  .saved {
+    margin: 1rem;
+  }
+
+  .booster-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  @media screen and (max-width: 500px) {
+    button {
+      font-size: 1.2rem;
+    }
+  }
 </style>
