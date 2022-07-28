@@ -74,4 +74,10 @@ button:hover {
 	justify-content: center;
 	align-items: flex-start;
 }
+
+@media screen and (max-width: 500px) {
+  button {
+    font-size: 1.2rem;
+  }
+}
 </style>
