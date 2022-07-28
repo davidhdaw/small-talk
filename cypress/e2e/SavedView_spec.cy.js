@@ -8,6 +8,10 @@ describe("small Talk Saved View", () => {
             statusCode: 201,
             fixture: "randomDrink.json"
         })
+        cy.intercept('GET', "https://icanhazdadjoke.com/", {
+            statusCode: 201,
+            fixture: "randomJoke.json"
+        })
         cy.visit("/")
         cy.get("button").first().click()
         cy.get(".unfilled-favorite-star").click()
