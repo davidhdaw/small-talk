@@ -1,6 +1,6 @@
 // https://docs.cypress.io/api/introduction/api.html
 
-describe("small Talk landing page", () => {
+describe("small Talk landing page (Random View)", () => {
   beforeEach(() => {
     cy.visit("/");
     cy.intercept('GET', "https://uselessfacts.jsph.pl/random.json?language=en", {

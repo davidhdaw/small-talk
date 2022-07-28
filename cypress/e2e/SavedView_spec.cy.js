@@ -1,4 +1,4 @@
-describe("small Talk landing page", () => {
+describe("small Talk Saved View", () => {
     beforeEach(() => {
         cy.intercept('GET', "https://uselessfacts.jsph.pl/random.json?language=en", {
             statusCode: 201,
