@@ -1,5 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
+import { useBoosterStore } from './stores/boosterStore';
+const { loadFromStorage } = useBoosterStore();
+loadFromStorage()
 </script>
 
 <template>

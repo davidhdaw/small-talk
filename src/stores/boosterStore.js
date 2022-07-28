@@ -18,12 +18,19 @@ export const useBoosterStore = defineStore({
   }, 
   actions: {
     favoriteBooster(booster){
-      booster.isFavorited = true;
+      booster.isFavorited = true
       this.boosters.push(booster)
+      const boosterAsString = JSON.stringify(booster)
+      localStorage.setItem(booster.id, boosterAsString)
     },
     deleteBooster(deletedBooster){
-      deletedBooster.isFavorited = false;
-      this.boosters = this.boosters.filter(booster => booster.id !== deletedBooster.id)
+      deletedBooster.isFavorited = false
+      localStorage.removeItem(deletedBooster.id)
+      this.boosters = this.boosters.filter(booster => booster.id !== deletedBooster.id)  
+    },
+    loadFromStorage(){
+      this.boosters = Object.values(localStorage).map(object => JSON.parse(object))
+      this.boosters.sort((a,b) => a.id - b.id)
     }
   }
 })
