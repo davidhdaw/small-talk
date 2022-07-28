@@ -1,15 +1,15 @@
 <script setup>
-import { useBoosterStore } from '../stores/boosterStore';
-import { defineProps } from "vue"
+    import { useBoosterStore } from '../stores/boosterStore';
+    import { defineProps } from "vue";
 
-const { favoriteBooster, deleteBooster } = useBoosterStore()
+    const { favoriteBooster, deleteBooster } = useBoosterStore();
 
-const props = defineProps({
-    text: String,
-    type: String,
-    isFavorited: Boolean,
-    booster: Object
-    })
+    const props = defineProps({
+        text: String,
+        type: String,
+        isFavorited: Boolean,
+        booster: Object
+    });
 </script>
 
 <template>
@@ -37,6 +37,7 @@ const props = defineProps({
 .filled-favorite-star {
     color:#E0676D;
 }
+
 .booster-card {
     background-color: #1F487E;
     height: 15rem;
@@ -46,7 +47,6 @@ const props = defineProps({
     box-shadow: 0.3rem 0.3rem #000000;
     margin: 1.2rem;
 }
-
 .card-text {
     height: 9rem;
     overflow: scroll;
@@ -70,7 +70,7 @@ const props = defineProps({
 
 *::-webkit-scrollbar-corner {
     background: transparent;
-    }
+}
 
 .card-header {
     display: flex;
