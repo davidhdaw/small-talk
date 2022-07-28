@@ -13,25 +13,37 @@ describe("small Talk Saved View", () => {
         cy.get(".unfilled-favorite-star").click()
         cy.get("button").last().click()
         cy.get(".unfilled-favorite-star").click()
+        cy.get("button").eq(1).click()
+        cy.get(".unfilled-favorite-star").click()
         cy.get(".router-link").last().click()
     })
 
     it("should show a saved fact booster in saved view by default", () => {
         cy.get(".booster-card").contains("The average person spends about two years on the phone in a lifetime.")
         cy.get("p").should("have.class","filled-favorite-star")
-      })
+    })
 
     it("should show a saved drink booster in saved view when clicking on saved drinks", () => {
         cy.get(".booster-card").contains("The average person spends about two years on the phone in a lifetime.")
         cy.get("button").last().click()
         cy.get(".booster-card").last().contains("Amaretto Sunrise")
         cy.get("p").should("have.class","filled-favorite-star")
-      })
+    })
+      
+    it("should show a saved joke booster in saved view when clicking on saved jokes", () => {
+        cy.get(".booster-card").contains("The average person spends about two years on the phone in a lifetime.")
+        cy.get("button").last().click()
+        cy.get(".booster-card").last().contains("Amaretto Sunrise")
+        cy.get("p").should("have.class","filled-favorite-star")
+    })
 
     it("should be able to unsave boosters from saved views", () => {
         cy.get(".filled-favorite-star").click()
         cy.get(".booster-card").should("not.exist")
         cy.get("button").last().click()
+        cy.get(".filled-favorite-star").click()
+        cy.get(".booster-card").should("not.exist")
+        cy.get("button").eq(1).click()
         cy.get(".filled-favorite-star").click()
         cy.get(".booster-card").should("not.exist")
     })
