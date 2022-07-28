@@ -20,10 +20,10 @@ const { favoriteBooster, deleteBooster } = useBoosterStore()
         <div class="card-header">
             <h3>{{ type }}.</h3>
             <p v-if="!booster.isFavorited"
-            @click="favoriteBooster(booster)" class="unfilled-favorite-star">☆</p>
+            @click="favoriteBooster(booster)" class="unfilled-favorite-star star">☆</p>
             <p v-if="booster.isFavorited" 
             @click="deleteBooster(booster)"
-            class="filled-favorite-star">★</p>
+            class="filled-favorite-star star">★</p>
         </div>
         <div class="card-text">
             <h4 class="drink-title">{{title}}</h4>
@@ -38,6 +38,15 @@ const { favoriteBooster, deleteBooster } = useBoosterStore()
 </template>
 
 <style scoped>
+h4 {
+    margin: 0px;
+}
+.star {
+    font-size: 20px;
+}
+.filled-favorite-star {
+    color:#E0676D;
+}
 .booster-card {
     background-color: #1F487E;
     height: 15rem;
