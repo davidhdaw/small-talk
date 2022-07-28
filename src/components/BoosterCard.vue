@@ -56,16 +56,16 @@
     }
 
     *::-webkit-scrollbar {
-    width: 0.5rem;
+        width: 0.5rem;
     }
 
     *::-webkit-scrollbar-track {
-    background: transparent;
+        background: transparent;
     }
 
     *::-webkit-scrollbar-thumb {
-    background-color: #E0676D;
-    border-radius: 20px;
+        background-color: #E0676D;
+        border-radius: 20px;
     }
 
     *::-webkit-scrollbar-corner {

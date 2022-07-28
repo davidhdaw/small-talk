@@ -28,10 +28,10 @@
 <style scoped>
 
   h1 {
-      -webkit-text-stroke: 1px black;
-      font-size: 40px;
-      margin: 0px;
-      text-shadow: 3px 3px #101010;
+    -webkit-text-stroke: 1px black;
+    font-size: 40px;
+    margin: 0px;
+    text-shadow: 3px 3px #101010;
   }
   .small {
     font-size: 30px;
