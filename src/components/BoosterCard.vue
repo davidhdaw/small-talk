@@ -16,10 +16,10 @@
     <div class="booster-card">
         <div class="card-header">
             <h3>{{ type }}.</h3>
-            <p v-if="!booster.isFavorited"
+            <p v-if="!booster.isFavorited && booster.type !== 'excuse'"
                 @click="favoriteBooster(booster)" 
                 class="unfilled-favorite-star star">☆</p>
-            <p v-if="booster.isFavorited" 
+            <p v-if="booster.isFavorited && booster.type !== 'excuse'" 
                 @click="deleteBooster(booster)"
                 class="filled-favorite-star star">★</p>
         </div>
