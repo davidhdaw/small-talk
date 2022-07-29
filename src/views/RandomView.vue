@@ -2,11 +2,13 @@
   import { ref } from "vue";
   import BoosterCard from "../components/BoosterCard.vue";
   import DrinkBoosterCard from "../components/DrinkBoosterCard.vue";
+  import getData from "../apiCalls"
   const booster = ref(null);
+  const error = ref("")
 
   const getNewFact = () => {
-    fetch("https://uselessfacts.jsph.pl/random.json?language=en")
-    .then(response => response.json())
+    error.value = ""
+    getData("https://uselessfacts.jsph.pl/random.json?language=en")
     .then(data => {
       const newBooster = {
         text: data.text,
@@ -15,16 +17,17 @@
         isFavorited: false
       }
       return booster.value = newBooster;
-    });
+    })
+    .catch(err => error.value = err);
   };
 
   const getNewJoke = () => {
-    fetch("https://icanhazdadjoke.com/", {
+    error.value = ""
+    getData("https://icanhazdadjoke.com/", {
       headers: {
         "accept": "application/json"
       }
     })
-      .then(res => res.json())
       .then(data => {
         const newBooster = {
         text: data.joke,
@@ -33,12 +36,13 @@
         isFavorited: false
         }
         return booster.value = newBooster;
-    });
+    })
+    .catch(err => error.value = err);
   };
 
   const getNewDrink = () => {
-    fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
-    .then(response => response.json())
+    error.value = ""
+    getData("https://www.thecocktaildb.com/api/json/v1/1/random.php")
     .then(data => {
       const ingredientsList = [];
       for (let i = 1; i < 16; i++) {
@@ -61,12 +65,12 @@
         isFavorited:false
       }
       return booster.value = newBooster;
-    });
+    })
+    .catch(err => error.value = err);
   };
 
   const getNewExcuse = () => {
-    fetch("http://www.boredapi.com/api/activity/")
-    .then(response => response.json())
+    getData("http://www.boredapi.com/api/activity")
     .then(data => {
       const excuse = "I'm sorry I have to " + data.activity.toLowerCase().replaceAll("you're", "I'm").replaceAll('your', 'my').replaceAll('you', 'I')
       const newBooster = {
@@ -76,7 +80,8 @@
         isFavorited: false
       }
       return booster.value = newBooster;
-    });
+    })
+    .catch(err => error.value = err);
   };
 </script>
 
@@ -87,6 +92,7 @@
       <button @click="getNewJoke">Give me a new joke</button>
       <button @click="getNewDrink">Give me a new drink</button>
     </div>
+    <div v-if="error" class="error">Uh Oh, something went wrong!</div>
     <div class="booster-container">
       <BoosterCard v-if= "booster && booster.type ==='fact'" 
         :isFavorited="booster.isFavorited" 
