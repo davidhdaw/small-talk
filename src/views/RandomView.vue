@@ -70,6 +70,7 @@
   };
 
   const getNewExcuse = () => {
+    error.value = ""
     getData("http://www.boredapi.com/api/activity")
     .then(data => {
       const excuse = "I'm sorry I have to " + data.activity.toLowerCase().replaceAll("you're", "I'm").replaceAll('your', 'my').replaceAll('you', 'I')
