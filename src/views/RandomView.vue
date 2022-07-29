@@ -63,6 +63,21 @@
       return booster.value = newBooster;
     });
   };
+
+  const getNewExcuse = () => {
+    fetch("http://www.boredapi.com/api/activity/")
+    .then(response => response.json())
+    .then(data => {
+      const excuse = "I'm sorry I have to " + data.activity.toLowerCase().replaceAll("you're", "I'm").replaceAll('your', 'my').replaceAll('you', 'I')
+      const newBooster = {
+        text: excuse,
+        id: Date.now(),
+        type: "excuse",
+        isFavorited: false
+      }
+      return booster.value = newBooster;
+    });
+  };
 </script>
 
 <template>
@@ -94,6 +109,16 @@
         :booster="booster"
       />
     </div>
+    <div>
+      <button @click="getNewExcuse">I gotta get out of here</button>
+      <BoosterCard v-if= "booster && booster.type ==='excuse'" 
+        :isFavorited="booster.isFavorited" 
+        :text="booster.text" 
+        :type="booster.type"
+        :booster="booster"
+      />
+    </div>
+    
   </div>
 </template>
 <style scoped>
