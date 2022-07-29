@@ -1,9 +1,11 @@
 <script setup>
+  import defaultAudio from "../assets/cropped-audio.mp3";
   import { ref } from "vue";
   import BoosterCard from "../components/BoosterCard.vue";
   import DrinkBoosterCard from "../components/DrinkBoosterCard.vue";
   import getData from "../apiCalls"
   const booster = ref(null);
+  const notificationSound = new Audio(defaultAudio);
   const error = ref("")
 
   const getNewFact = () => {
@@ -82,6 +84,7 @@
         type: "excuse",
         isFavorited: false
       }
+      notificationSound.play();
       return booster.value = newBooster;
     })
     .catch(err => error.value = err);
