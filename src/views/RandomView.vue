@@ -68,7 +68,9 @@
     fetch("http://www.boredapi.com/api/activity/")
     .then(response => response.json())
     .then(data => {
-      const excuse = "I'm sorry I have to " + data.activity.toLowerCase().replaceAll("you're", "I'm").replaceAll('your', 'my').replaceAll('you', 'I')
+      const intros = ["I'm sorry I have to ", "Drat. I just rememberd I was going to ", "Gotta go I need to ", "Can we talk later I have to ", "Sorry I promised a friend I'd "]
+      const randomIndex = Math.floor(Math.random() * intros.length);
+      const excuse = intros[randomIndex] + data.activity.toLowerCase().replaceAll("you're", "I'm").replaceAll('your', 'my').replaceAll('you', 'I') + "."
       const newBooster = {
         text: excuse,
         id: Date.now(),
