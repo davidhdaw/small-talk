@@ -43,8 +43,13 @@ import { ref } from "vue"
       const ingredientsList = [];
       for (let i = 1; i < 16; i++) {
         if (data.drinks[0][`strIngredient${i}`]) {
-          const ingredient = data.drinks[0][`strMeasure${i}`] + " " + data.drinks[0][`strIngredient${i}`]
-          ingredientsList.push(ingredient)
+          if (!data.drinks[0][`strMeasure${i}`]) {
+            const ingredient = data.drinks[0][`strIngredient${i}`]
+            ingredientsList.push(ingredient)
+          } else {
+            const ingredient = data.drinks[0][`strMeasure${i}`] + " " + data.drinks[0][`strIngredient${i}`]
+            ingredientsList.push(ingredient)
+          }
         }
       }
       const newBooster = {
