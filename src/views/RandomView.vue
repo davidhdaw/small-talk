@@ -1,8 +1,11 @@
 <script setup>
+  import defaultAudio from "../assets/cropped-audio.mp3";
   import { ref } from "vue";
   import BoosterCard from "../components/BoosterCard.vue";
   import DrinkBoosterCard from "../components/DrinkBoosterCard.vue";
   const booster = ref(null);
+  
+  const notificationSound = new Audio(defaultAudio);
 
   const getNewFact = () => {
     fetch("https://uselessfacts.jsph.pl/random.json?language=en")
@@ -77,6 +80,7 @@
         type: "excuse",
         isFavorited: false
       }
+      notificationSound.play();
       return booster.value = newBooster;
     });
   };
