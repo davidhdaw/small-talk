@@ -109,8 +109,11 @@
         :booster="booster"
       />
     </div>
-    <div>
-      <button @click="getNewExcuse">I gotta get out of here</button>
+    <div class="excuse-container">
+      <button class="excuse-button" 
+        @click="getNewExcuse">
+        I gotta get out of here!
+        </button>
       <BoosterCard v-if= "booster && booster.type ==='excuse'" 
         :isFavorited="booster.isFavorited" 
         :text="booster.text" 
@@ -122,6 +125,12 @@
   </div>
 </template>
 <style scoped>
+  .excuse-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
   .random {
     margin: 1rem;
@@ -141,6 +150,9 @@
     transition: 0.4s;
   }
 
+  .excuse-button {
+    background-color:#d0121b;
+  }
   .booster-container {
     display: flex;
     justify-content: center;
