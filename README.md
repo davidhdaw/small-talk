@@ -22,7 +22,10 @@ In your terminal, run `npm run cypress` to see that all user flows have been tes
 
 #### See it in action 
 
-[GIF GOES HERE]
+Getting boosters from our api calls.  
+![Get random boosters!](/src/assets/smallTalk1.gif "random boosters")  
+Saving those boosters for later viewing.  
+![Save random boosters!](/src/assets/smallTalk2.gif "save boosters")
 
 #### Technologies used:
 - Vue 3
@@ -48,4 +51,3 @@ I really enjoyed building out this project using Vue vs React. The architecture 
 
 ##### Cyanne Jones:
 This project was an absolute blast to work on thanks to David and Masaki being the coolest project partners. I'm so happy with how this turned out, and it was so exciting learning a new technology to implement such a fun idea in. Coming from learning React as my first JS framework, there were many parts of Vue that felt really similar (like component based architecture), but a lot of things that felt brand new (like a single page component). I actually LOVED these single page components, and felt wildly organized having all the component's styling in the same .vue file and the component itself. No more rifling through your CSS folder looking for a component's styling just to make a small edit, close the file and do it all over again 5 inutes later because you need the component's text moved to the left 0.3rem to the right. I learned so much on this project and am so happy to have another framework under my belt. 
-
