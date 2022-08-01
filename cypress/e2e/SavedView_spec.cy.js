@@ -15,7 +15,7 @@ describe("small Talk Saved View", () => {
         cy.visit("/")
         cy.get("button").first().click()
         cy.get(".unfilled-favorite-star").click()
-        cy.get("button").last().click()
+        cy.get("button").eq(2).click()
         cy.get(".unfilled-favorite-star").click()
         cy.get("button").eq(1).click()
         cy.get(".unfilled-favorite-star").click()
@@ -39,6 +39,11 @@ describe("small Talk Saved View", () => {
         cy.get("button").last().click()
         cy.get(".booster-card").last().contains("Amaretto Sunrise")
         cy.get("p").should("have.class","filled-favorite-star")
+    })
+
+    it.only("saved boosters should persist on page reload", () => {
+        cy.visit("/saved")
+        cy.get(".booster-card").contains("The average person spends about two years on the phone in a lifetime.")
     })
 
     it("should be able to unsave boosters from saved views", () => {
