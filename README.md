@@ -41,8 +41,7 @@ In your terminal, run `npm run cypress` to see that all user flows have been tes
 #### Group Member Reflections:
 
 ##### Massaki Kleinkopf:
-[REFLECTION GOES HERE]
-
+This was a great project to test our own learning capacity. We had never used Vue before, and our only other framework experience was React using class based components. We decided to use Vue 3, though we were a bit uncertain if we should use Vue 2. We ended up learning the Composition API as this seemed like a really streamlined way of working. Overall, it was eye opening to be able to successfully learn a new framework in a week. There were definitely some differences in syntax, but the most important thing I learned is that front-end frameworks are very similar to each other, and they make it easy to render the UI with reusable components. I feel really confident if I need to learn a new framework such as Angular or Svelte in the future, as I am more comfortable with how front-end frameworks work. Cyanne and David were incredibly helpful to work with, and we leaned on each other with a lot of group coding where we fixed bugs that would have had me stumped for hours.
 ##### David Daw:
 [REFLECTION GOES HERE]
 
