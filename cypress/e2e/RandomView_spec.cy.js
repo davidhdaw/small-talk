@@ -15,6 +15,10 @@ describe("small Talk landing page (Random View)", () => {
       statusCode: 201,
       fixture: "randomJoke.json"
     })
+    cy.intercept('GET', "http://www.boredapi.com/api/activity", {
+      statusCode: 201,
+      fixture: "randomExcuse.json"
+    })
   })
 
   it("should visit the landing page with title", () => {
@@ -29,7 +33,7 @@ describe("small Talk landing page (Random View)", () => {
   it("should have correct fact, joke and drink buttons", () => {
     cy.get("button").first().contains("Give me a new fact")
     cy.get("button").eq(1).contains("Give me a new joke")
-    cy.get("button").last().contains("Give me a new drink")
+    cy.get("button").eq(2).contains("Give me a new drink")
   });
 
   it("should give me a new fact when I click the new fact button", () => {
@@ -38,7 +42,7 @@ describe("small Talk landing page (Random View)", () => {
   });
 
   it("should give me a new drink when I click the new drink button", () => {
-    cy.get("button").last().click()
+    cy.get("button").eq(2).click()
     cy.get(".booster-card").contains("Amaretto Sunrise")
     cy.get(".booster-card").contains("1 cl Amaretto")
     cy.get(".booster-card").contains("Mix together the amaretto and orange juice. Pour into glass and then add the grenadine untill you see the sunrise")
@@ -48,6 +52,12 @@ describe("small Talk landing page (Random View)", () => {
     cy.get("button").eq(1).click()
     cy.get(".booster-card").contains("joke")
     cy.get(".booster-card").contains("Why did the octopus beat the shark in a fight? Because it was well armed.")
+  });
+
+  it("should give me a new excuse when I click the new get me outta here button", () => {
+    cy.get("button").last().click()
+    cy.get(".booster-card").contains("excuse")
+    cy.get(".booster-card").contains("mow my neighbor's lawn.")
   });
 
   it("should be able to save fact booster", () => {
@@ -67,7 +77,7 @@ describe("small Talk landing page (Random View)", () => {
   })
 
   it("should be able to save drink in Random View", () => {
-    cy.get("button").last().click()
+    cy.get("button").eq(2).click()
     cy.get("p").should("have.class","unfilled-favorite-star")
     cy.get(".unfilled-favorite-star").first().click()
     cy.get("p").should("have.class","filled-favorite-star")
@@ -83,5 +93,26 @@ describe("small Talk landing page (Random View)", () => {
   it("should not show saved boosters in saved view if nothing has been saved",() => {
     cy.get(".router-link").last().click()
     cy.get(".booster-card").should("not.exist")
+  })
+
+  it("should give error if server fails", () => {
+    cy.intercept('GET', "https://uselessfacts.jsph.pl/random.json?language=en", {
+      statusCode: 404,
+      body: "cypress error"
+    })
+    cy.intercept('GET', "https://www.thecocktaildb.com/api/json/v1/1/random.php", {
+      statusCode: 404,
+      body: "cypress error"
+    })
+    cy.intercept('GET', "https://icanhazdadjoke.com/", {
+      statusCode: 404,
+      body: "cypress error"
+    })
+    cy.get("button").first().click()
+    cy.contains("Uh Oh, something went wrong!")
+    cy.get("button").eq(1).click()
+    cy.contains("Uh Oh, something went wrong!")
+    cy.get("button").eq(2).click()
+    cy.contains("Uh Oh, something went wrong!")
   })
 });
