@@ -44,7 +44,7 @@ In your terminal, run `npm run cypress` to see that all user flows have been tes
 [REFLECTION GOES HERE]
 
 ##### David Daw:
-[REFLECTION GOES HERE]
+I really enjoyed building out this project using Vue vs React. The architecture of Small Talk really let us focus on the positives aspects of Vue like its simple syntax for attaching handlers and keeping track of state. Even implementing global state using Pinia was a largely painless process. If I were to pick a major downside to Vue it would be the number of different syntax options while Vue is migrating from Vue 2 to Vue 3 (composition vs options api etc). I was really blessed to have smart and flexible partners in Cyanne and Masaki but I can definitely see how the wealth of options available with Vue could be a double edged sword when it comes to project planning.
 
 ##### Cyanne Jones:
 This project was an absolute blast to work on thanks to David and Masaki being the coolest project partners. I'm so happy with how this turned out, and it was so exciting learning a new technology to implement such a fun idea in. Coming from learning React as my first JS framework, there were many parts of Vue that felt really similar (like component based architecture), but a lot of things that felt brand new (like a single page component). I actually LOVED these single page components, and felt wildly organized having all the component's styling in the same .vue file and the component itself. No more rifling through your CSS folder looking for a component's styling just to make a small edit, close the file and do it all over again 5 inutes later because you need the component's text moved to the left 0.3rem to the right. I learned so much on this project and am so happy to have another framework under my belt. 
