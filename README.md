@@ -22,7 +22,10 @@ In your terminal, run `npm run cypress` to see that all user flows have been tes
 
 #### See it in action 
 
-[GIF GOES HERE]
+Getting boosters from our api calls.  
+![Get random boosters!](/src/assets/smallTalk1.gif "random boosters")  
+Saving those boosters for later viewing.  
+![Save random boosters!](/src/assets/smallTalk2.gif "save boosters")
 
 #### Technologies used:
 - Vue 3
@@ -43,8 +46,7 @@ In your terminal, run `npm run cypress` to see that all user flows have been tes
 ##### Massaki Kleinkopf:
 This was a great project to test our own learning capacity. We had never used Vue before, and our only other framework experience was React using class based components. We decided to use Vue 3, though we were a bit uncertain if we should use Vue 2. We ended up learning the Composition API as this seemed like a really streamlined way of working. Overall, it was eye opening to be able to successfully learn a new framework in a week. There were definitely some differences in syntax, but the most important thing I learned is that front-end frameworks are very similar to each other, and they make it easy to render the UI with reusable components. I feel really confident if I need to learn a new framework such as Angular or Svelte in the future, as I am more comfortable with how front-end frameworks work. Cyanne and David were incredibly helpful to work with, and we leaned on each other with a lot of group coding where we fixed bugs that would have had me stumped for hours.
 ##### David Daw:
-[REFLECTION GOES HERE]
+I really enjoyed building out this project using Vue vs React. The architecture of Small Talk really let us focus on the positives aspects of Vue like its simple syntax for attaching handlers and keeping track of state. Even implementing global state using Pinia was a largely painless process. If I were to pick a major downside to Vue it would be the number of different syntax options while Vue is migrating from Vue 2 to Vue 3 (composition vs options api etc). I was really blessed to have smart and flexible partners in Cyanne and Masaki but I can definitely see how the wealth of options available with Vue could be a double edged sword when it comes to project planning.
 
 ##### Cyanne Jones:
 This project was an absolute blast to work on thanks to David and Masaki being the coolest project partners. I'm so happy with how this turned out, and it was so exciting learning a new technology to implement such a fun idea in. Coming from learning React as my first JS framework, there were many parts of Vue that felt really similar (like component based architecture), but a lot of things that felt brand new (like a single page component). I actually LOVED these single page components, and felt wildly organized having all the component's styling in the same .vue file and the component itself. No more rifling through your CSS folder looking for a component's styling just to make a small edit, close the file and do it all over again 5 inutes later because you need the component's text moved to the left 0.3rem to the right. I learned so much on this project and am so happy to have another framework under my belt. 
-
