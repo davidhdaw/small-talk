@@ -41,7 +41,7 @@ describe("small Talk Saved View", () => {
         cy.get("p").should("have.class","filled-favorite-star")
     })
 
-    it.only("saved boosters should persist on page reload", () => {
+    it("saved boosters should persist on page reload", () => {
         cy.visit("/saved")
         cy.get(".booster-card").contains("The average person spends about two years on the phone in a lifetime.")
     })
