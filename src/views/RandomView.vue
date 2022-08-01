@@ -73,7 +73,7 @@
 
   const getNewExcuse = () => {
     error.value = ""
-    getData("http://www.boredapi.com/api/activity")
+    getData("boredapi.com/api/activity")
     .then(data => {
       const intros = ["I'm sorry I have to ", "Drat. I just rememberd I was going to ", "Gotta go I need to ", "Can we talk later I have to ", "Sorry I promised a friend I'd "]
       const randomIndex = Math.floor(Math.random() * intros.length);
