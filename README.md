@@ -18,7 +18,7 @@ After Covid, all of us need a little social help when gathering at a party. Some
 Now that you've got access to *small Talk*, feel free to get a new booster by clicking the "Give me a new [category]" buttons, press the star button to save the booster to view later. To view your saved boosters, press the "Saved Party Boosters" button and navigate to the category you're looking for! If you need to get the heck out of that party ASAP, press the "I gotta get out of here!" button and a new excuse will pop up with a ringtone sound to allow you to get out with (hopefully) no questions asked.
 
 #### Testing Instructions
-In your terminal, run `npm run cypress` to see that all user flows have been tested and the app is passing all tests!
+In your terminal, run `npx cypress open` to see that all user flows have been tested and the app is passing all tests!
 
 #### See it in action 
 
